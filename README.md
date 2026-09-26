@@ -2,20 +2,7 @@
 
 I contribute production-focused fixes to Python backend and infrastructure projects, with an emphasis on performance, concurrency, data integrity, security, and operational reliability.
 
-**At a glance:** 11 merged pull requests across Dify, authentik, Itqan CMS, heym, Hishel, and open-MaStR, plus a completed concurrency defect report.
-
-## Dify
-
-[![GitHub stars](https://img.shields.io/github/stars/langgenius/dify?style=flat&logo=github&label=Stars)](https://github.com/langgenius/dify/stargazers)
-
-#### [PR #39899 — Remove the N+1 insert bottleneck from Notion dataset sync](https://github.com/langgenius/dify/pull/39899)
-
-**Opened:** August 2, 2026 · **Merged:** August 3, 2026
-
-- Replaced a SQLAlchemy `flush()` inside the document loop with pre-generated UUID primary keys and one batch flush.
-- Enabled SQLAlchemy to group inserts rather than performing a synchronous database round trip for every imported page.
-- Updated the relevant unit test; local simulated benchmarks reported approximately 70% lower synchronization time from CPU-overhead savings.
-
+**At a glance:** 12 merged pull requests across Dify, authentik, Itqan CMS, Scalene, heym, Hishel, and open-MaStR, plus a completed concurrency defect report.
 
 ## Itqan CMS Backend
 
@@ -78,6 +65,30 @@ Six merged pull requests to the Django backend powering the Itqan content-manage
 - Reduced the production attack surface by removing build-only packages and running services as a non-root user.
 - Corrected ownership for application and persistent-volume paths, including existing deployment volumes used by static and media files.
 - Moved the Celery Beat schedule to a writable runtime location and kept local, staging, and production Compose configurations aligned.
+
+## Dify
+
+[![GitHub stars](https://img.shields.io/github/stars/langgenius/dify?style=flat&logo=github&label=Stars)](https://github.com/langgenius/dify/stargazers)
+
+#### [PR #39899 — Remove the N+1 insert bottleneck from Notion dataset sync](https://github.com/langgenius/dify/pull/39899)
+
+**Opened:** August 2, 2026 · **Merged:** August 3, 2026
+
+- Replaced a SQLAlchemy `flush()` inside the document loop with pre-generated UUID primary keys and one batch flush.
+- Enabled SQLAlchemy to group inserts rather than performing a synchronous database round trip for every imported page.
+- Updated the relevant unit test; local simulated benchmarks reported approximately 70% lower synchronization time from CPU-overhead savings.
+
+## Scalene
+
+[![GitHub stars](https://img.shields.io/github/stars/plasma-umass/scalene?style=flat&logo=github&label=Stars)](https://github.com/plasma-umass/scalene/stargazers)
+
+#### [PR #1095 — Prevent API credentials from being embedded in generated HTML](https://github.com/plasma-umass/scalene/pull/1095)
+
+**Opened:** September 25, 2026 · **Merged:** September 25, 2026
+
+- Closed a credential-exposure vulnerability that copied OpenAI, Anthropic, and AWS API credentials from environment variables into generated HTML reports as plaintext JavaScript.
+- Removed credential collection and template injection during HTML generation while preserving an empty `envApiKeys` object for compatibility with the existing GUI bundle.
+- Added regression coverage for both regular and standalone HTML reports; users can still enter credentials through the GUI and retain them in browser-local storage.
 
 ## authentik
 
