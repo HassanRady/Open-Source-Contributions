@@ -2,7 +2,7 @@
 
 I contribute production-focused fixes to Python backend and infrastructure projects, with an emphasis on performance, concurrency, data integrity, security, and operational reliability.
 
-**At a glance:** 13 merged pull requests across Dify, authentik, Itqan CMS, Scalene, Glances, heym, Hishel, and open-MaStR, plus a completed concurrency defect report.
+**At a glance:** 14 merged pull requests across Dify, authentik, Itqan CMS, Starlette, Scalene, Glances, heym, Hishel, and open-MaStR, plus a completed concurrency defect report.
 
 ## Itqan CMS Backend
 
@@ -89,6 +89,18 @@ Six merged pull requests to the Django backend powering the Itqan content-manage
 - Closed a credential-exposure vulnerability that copied OpenAI, Anthropic, and AWS API credentials from environment variables into generated HTML reports as plaintext JavaScript.
 - Removed credential collection and template injection during HTML generation while preserving an empty `envApiKeys` object for compatibility with the existing GUI bundle.
 - Added regression coverage for both regular and standalone HTML reports; users can still enter credentials through the GUI and retain them in browser-local storage.
+
+## Starlette
+
+[![GitHub stars](https://img.shields.io/github/stars/Kludex/starlette?style=flat&logo=github&label=Stars)](https://github.com/Kludex/starlette/stargazers)
+
+#### [PR #3583 — Stop multipart range responses on unexpected EOF](https://github.com/Kludex/starlette/pull/3583)
+
+**Opened:** September 24, 2026 · **Merged:** September 26, 2026
+
+- Fixed an infinite loop in `FileResponse` multipart range handling when a file reaches EOF before the requested byte range is complete, such as when cached metadata becomes stale after the file is shortened.
+- Detects zero-byte reads and terminates with a clear `RuntimeError` instead of repeatedly emitting empty ASGI messages with `more_body=True`.
+- Added a regression test that combines stale file metadata with a subsequently truncated file and verifies that the response exits promptly.
 
 ## Glances
 
