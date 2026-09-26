@@ -4,6 +4,18 @@ I contribute production-focused fixes to Python backend and infrastructure proje
 
 **At a glance:** 12 merged pull requests across Dify, authentik, Itqan CMS, Scalene, heym, Hishel, and open-MaStR, plus a completed concurrency defect report.
 
+## Dify
+
+[![GitHub stars](https://img.shields.io/github/stars/langgenius/dify?style=flat&logo=github&label=Stars)](https://github.com/langgenius/dify/stargazers)
+
+#### [PR #39899 — Remove the N+1 insert bottleneck from Notion dataset sync](https://github.com/langgenius/dify/pull/39899)
+
+**Opened:** August 2, 2026 · **Merged:** August 3, 2026
+
+- Replaced a SQLAlchemy `flush()` inside the document loop with pre-generated UUID primary keys and one batch flush.
+- Enabled SQLAlchemy to group inserts rather than performing a synchronous database round trip for every imported page.
+- Updated the relevant unit test; local simulated benchmarks reported approximately 70% lower synchronization time from CPU-overhead savings.
+
 ## Itqan CMS Backend
 
 [![GitHub stars](https://img.shields.io/github/stars/Itqan-community/cms-backend?style=flat&logo=github&label=Stars)](https://github.com/Itqan-community/cms-backend/stargazers)
@@ -65,18 +77,6 @@ Six merged pull requests to the Django backend powering the Itqan content-manage
 - Reduced the production attack surface by removing build-only packages and running services as a non-root user.
 - Corrected ownership for application and persistent-volume paths, including existing deployment volumes used by static and media files.
 - Moved the Celery Beat schedule to a writable runtime location and kept local, staging, and production Compose configurations aligned.
-
-## Dify
-
-[![GitHub stars](https://img.shields.io/github/stars/langgenius/dify?style=flat&logo=github&label=Stars)](https://github.com/langgenius/dify/stargazers)
-
-#### [PR #39899 — Remove the N+1 insert bottleneck from Notion dataset sync](https://github.com/langgenius/dify/pull/39899)
-
-**Opened:** August 2, 2026 · **Merged:** August 3, 2026
-
-- Replaced a SQLAlchemy `flush()` inside the document loop with pre-generated UUID primary keys and one batch flush.
-- Enabled SQLAlchemy to group inserts rather than performing a synchronous database round trip for every imported page.
-- Updated the relevant unit test; local simulated benchmarks reported approximately 70% lower synchronization time from CPU-overhead savings.
 
 ## Scalene
 
