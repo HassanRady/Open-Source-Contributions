@@ -2,15 +2,24 @@
 
 I contribute production-focused fixes to Python backend and infrastructure projects, with an emphasis on performance, concurrency, data integrity, security, and operational reliability.
 
-**At a glance:** 14 merged pull requests across Dify, authentik, Itqan CMS, Starlette, Scalene, Glances, heym, Hishel, and open-MaStR, plus a completed concurrency defect report.
+**At a glance:** 16 merged pull requests across Dify, authentik, Itqan CMS, Celery, Starlette, Scalene, Glances, heym, Hishel, and open-MaStR, plus a completed concurrency defect report.
 
 ## Itqan CMS Backend
 
 [![GitHub stars](https://img.shields.io/github/stars/Itqan-community/cms-backend?style=flat&logo=github&label=Stars)](https://github.com/Itqan-community/cms-backend/stargazers)
 
-Six merged pull requests to the Django backend powering the Itqan content-management platform.
+Seven merged pull requests to the Django backend powering the Itqan content-management platform.
 
 ### Security and concurrency
+
+#### [PR #511 — Prevent cross-tenant recitation upload mutations](https://github.com/Itqan-community/cms-backend/pull/511)
+
+**Opened:** September 26, 2026 · **Merged:** September 30, 2026
+
+- Closed an authorization gap that allowed portal users with permissions for one publisher to target another publisher's recitation assets and multipart uploads.
+- Scoped audio and timing asset lookups to the caller's publisher and authorized storage keys before signing parts, completing uploads, or aborting uploads.
+- Validated canonical storage-key representations, asset/folder ownership, and completion payload consistency while preserving the existing frontend API contract; inaccessible resources return not-found responses without modifying foreign records or storage objects.
+- Added regression coverage for foreign assets, malformed and noncanonical keys, and mismatched asset IDs, and documented the upload authorization boundary.
 
 #### [PR #454 — Enforce access control and private caching on recitation tracks](https://github.com/Itqan-community/cms-backend/pull/454)
 
@@ -66,7 +75,20 @@ Six merged pull requests to the Django backend powering the Itqan content-manage
 - Corrected ownership for application and persistent-volume paths, including existing deployment volumes used by static and media files.
 - Moved the Celery Beat schedule to a writable runtime location and kept local, staging, and production Compose configurations aligned.
 
+## Celery
+
+[![GitHub stars](https://img.shields.io/github/stars/celery/celery?style=flat&logo=github&label=Stars)](https://github.com/celery/celery/stargazers)
+
+#### [PR #10734 — Preserve pending consumer operation order](https://github.com/celery/celery/pull/10734)
+
+**Opened:** September 29, 2026 · **Merged:** September 30, 2026
+
+- Fixed reversed execution of deferred consumer callbacks in workers without an event-loop hub, where an add-then-cancel sequence could execute as cancel-then-add and leave a queue enabled.
+- Replaced the pending-operation list with a `deque` drained through `popleft()` to preserve FIFO scheduling order while retaining deferred execution and exception handling.
+- Added regression coverage verifying that callbacks execute in their scheduled order.
+
 ## Dify
+
 
 [![GitHub stars](https://img.shields.io/github/stars/langgenius/dify?style=flat&logo=github&label=Stars)](https://github.com/langgenius/dify/stargazers)
 
