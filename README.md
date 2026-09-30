@@ -2,7 +2,7 @@
 
 I contribute production-focused fixes to Python backend and infrastructure projects, with an emphasis on performance, concurrency, data integrity, security, and operational reliability.
 
-**At a glance:** 16 merged pull requests across Dify, authentik, Itqan CMS, Celery, Starlette, Scalene, Glances, heym, Hishel, and open-MaStR, plus a completed concurrency defect report.
+**At a glance:** 17 merged pull requests across Dify, authentik, Itqan CMS, Celery, Starlette, Scalene, Glances, heym, Hishel, and open-MaStR, plus a completed concurrency defect report.
 
 ## Itqan CMS Backend
 
@@ -127,6 +127,14 @@ Seven merged pull requests to the Django backend powering the Itqan content-mana
 ## Glances
 
 [![GitHub stars](https://img.shields.io/github/stars/nicolargo/glances?style=flat&logo=github&label=Stars)](https://github.com/nicolargo/glances/stargazers)
+
+#### [PR #3767 — Isolate export snapshots from live plugin statistics](https://github.com/nicolargo/glances/pull/3767)
+
+**Opened:** September 28, 2026 · **Merged:** September 30, 2026
+
+- Fixed export preparation mutating shared plugin statistics, which could expose exporter-only fields through APIs and UIs or contaminate concurrently running exporters.
+- Returned deep-copied snapshots from both export getters, isolating each exporter from live statistics and other exporters, including nested data.
+- Added regression coverage for dictionary- and list-based plugin statistics and verified that standard export preparation leaves live statistics unchanged.
 
 #### [PR #3740 — Recover TimescaleDB exports after failed transactions](https://github.com/nicolargo/glances/pull/3740)
 
