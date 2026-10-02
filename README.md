@@ -2,7 +2,7 @@
 
 I contribute production-focused fixes to Python backend and infrastructure projects, with an emphasis on performance, concurrency, data integrity, security, and operational reliability.
 
-**At a glance:** 17 merged pull requests across Dify, authentik, Itqan CMS, Celery, Starlette, Scalene, Glances, heym, Hishel, and open-MaStR, plus a completed concurrency defect report.
+**At a glance:** 18 merged pull requests across Dify, authentik, Itqan CMS, Celery, Starlette, Scalene, Glances, heym, Hishel, and open-MaStR, plus a completed concurrency defect report.
 
 ## Itqan CMS Backend
 
@@ -103,6 +103,14 @@ Seven merged pull requests to the Django backend powering the Itqan content-mana
 ## Scalene
 
 [![GitHub stars](https://img.shields.io/github/stars/plasma-umass/scalene?style=flat&logo=github&label=Stars)](https://github.com/plasma-umass/scalene/stargazers)
+
+#### [PR #1099 — Preserve semaphore identity across spawned processes](https://github.com/plasma-umass/scalene/pull/1099)
+
+**Opened:** September 26, 2026 · **Merged:** October 1, 2026
+
+- Fixed a multiprocessing correctness defect where serialization reconstructed an independent semaphore in a child process, allowing it to acquire a lock still held by its parent and defeating mutual exclusion.
+- Removed a state-discarding custom reducer and non-importable qualified name, restoring Python's inherited `SemLock` serialization to preserve the shared semaphore handle and identity while retaining process-spawning compatibility.
+- Added regression coverage for `spawn` and `forkserver` where available, proving that child processes cannot acquire a parent-held lock and preserving standard restrictions on pickling locks outside process spawning.
 
 #### [PR #1095 — Prevent API credentials from being embedded in generated HTML](https://github.com/plasma-umass/scalene/pull/1095)
 
