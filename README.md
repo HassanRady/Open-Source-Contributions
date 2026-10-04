@@ -2,7 +2,7 @@
 
 I contribute production-focused fixes to Python backend and infrastructure projects, with an emphasis on performance, concurrency, data integrity, security, and operational reliability.
 
-**At a glance:** 18 merged pull requests across Dify, authentik, Itqan CMS, Celery, Starlette, Scalene, Glances, heym, Hishel, and open-MaStR, plus a completed concurrency defect report.
+**At a glance:** 19 merged pull requests across Dify, authentik, Itqan CMS, Celery, Starlette, Scalene, Glances, heym, Hishel, and open-MaStR, plus a completed concurrency defect report.
 
 ## Itqan CMS Backend
 
@@ -78,6 +78,14 @@ Seven merged pull requests to the Django backend powering the Itqan content-mana
 ## Celery
 
 [![GitHub stars](https://img.shields.io/github/stars/celery/celery?style=flat&logo=github&label=Stars)](https://github.com/celery/celery/stargazers)
+
+#### [PR #10745 — Synchronize event dispatcher shutdown with publishing](https://github.com/celery/celery/pull/10745)
+
+**Opened:** September 30, 2026 · **Merged:** October 3, 2026
+
+- Fixed a shutdown race where `EventDispatcher.close()` released a mutex held by another thread during event publication or flushing, causing `RuntimeError: release unlocked lock`.
+- Made shutdown acquire the mutex normally and wait for in-flight publication before clearing the producer; added closed-state checks to prevent prepared publish or flush operations from using the producer after shutdown, with state reset on reopening.
+- Added unit coverage for concurrent shutdown interleavings and a broker-backed smoke test that pauses publication while another thread closes the dispatcher.
 
 #### [PR #10734 — Preserve pending consumer operation order](https://github.com/celery/celery/pull/10734)
 
