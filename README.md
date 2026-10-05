@@ -2,7 +2,7 @@
 
 I contribute production-focused fixes to Python backend and infrastructure projects, with an emphasis on performance, concurrency, data integrity, security, and operational reliability.
 
-**At a glance:** 19 merged pull requests across Dify, authentik, Itqan CMS, Celery, Starlette, Scalene, Glances, heym, Hishel, and open-MaStR, plus a completed concurrency defect report.
+**At a glance:** 20 merged pull requests across Dify, authentik, Itqan CMS, Celery, Starlette, Scalene, Glances, heym, Hishel, and open-MaStR, plus a completed concurrency defect report.
 
 ## Itqan CMS Backend
 
@@ -78,6 +78,14 @@ Seven merged pull requests to the Django backend powering the Itqan content-mana
 ## Celery
 
 [![GitHub stars](https://img.shields.io/github/stars/celery/celery?style=flat&logo=github&label=Stars)](https://github.com/celery/celery/stargazers)
+
+#### [PR #10776 — Release Beat scheduler broker resources on shutdown](https://github.com/celery/celery/pull/10776)
+
+**Opened:** October 3, 2026 · **Merged:** October 5, 2026
+
+- Fixed broker connection and channel leaks when embedded Celery Beat stopped while its scheduler remained referenced, preventing resources from accumulating across repeated lifecycle cycles.
+- Released cached publishing connections and cleared cached producers during shutdown, including synchronization failures, without creating new resources; ensured persistent scheduler storage closes even if base cleanup fails.
+- Added unit coverage for cleanup and failure paths and a RabbitMQ smoke test verifying connection, channel, and socket closure across three embedded Beat lifecycle cycles for each scheduler class, with Python 3.13 SQLite shelf compatibility.
 
 #### [PR #10745 — Synchronize event dispatcher shutdown with publishing](https://github.com/celery/celery/pull/10745)
 
