@@ -2,16 +2,25 @@
 
 I contribute production-focused fixes to Python backend and infrastructure projects, with an emphasis on performance, concurrency, data integrity, security, and operational reliability.
 
-**At a glance:** 23 merged pull requests across Dify, authentik, Itqan CMS, Celery, redis-py, Starlette, Scalene, Glances, heym, Hishel, and open-MaStR, plus a completed concurrency defect report.
+**At a glance:** 25 merged pull requests across Dify, authentik, Itqan CMS, Celery, redis-py, Starlette, Scalene, Glances, heym, Hishel, and open-MaStR, plus a completed concurrency defect report.
 
 <details>
 <summary><strong>Itqan CMS Backend</strong></summary>
 
 [![GitHub stars](https://img.shields.io/github/stars/Itqan-community/cms-backend?style=flat&logo=github&label=Stars)](https://github.com/Itqan-community/cms-backend/stargazers)
 
-Eight merged pull requests to the Django backend powering the Itqan content-management platform.
+Ten merged pull requests to the Django backend powering the Itqan content-management platform.
 
 ### Security and concurrency
+
+#### [PR #517 — Prevent races in asset access requests and grants](https://github.com/Itqan-community/cms-backend/pull/517)
+
+**Opened:** October 2, 2026 · **Merged:** October 7, 2026
+
+- Fixed concurrent access operations that could leave rejected requests with active grants, create duplicate requests, or fail with HTTP 500 errors.
+- Made reviewer decisions and submissions transactional, locked requests before validating their pending status, serialized submissions per asset, and committed approval together with grant creation; competing decisions return HTTP 409.
+- Made grant creation idempotent by reusing grants for each user/asset pair while preserving their original request association and handling license and expiry updates.
+- Added concurrency, rollback, and grant-reuse regression tests and documented the access-request consistency guarantees.
 
 #### [PR #511 — Prevent cross-tenant recitation upload mutations](https://github.com/Itqan-community/cms-backend/pull/511)
 
@@ -40,6 +49,14 @@ Eight merged pull requests to the Django backend powering the Itqan content-mana
 - Added a concurrent multi-threaded regression test to verify that simultaneous requests cannot contaminate one another's audit logs.
 
 ### Reliability and data integrity
+
+#### [PR #515 — Stream R2 audio fallback in bounded chunks](https://github.com/Itqan-community/cms-backend/pull/515)
+
+**Opened:** October 1, 2026 · **Merged:** October 7, 2026
+
+- Removed whole-file MP3 buffering from the audio-duration fallback, reducing worker memory pressure during large or concurrent uploads.
+- Streamed Cloudflare R2 audio in 1 MiB chunks to a seekable temporary file and explicitly closed both the response body and temporary file.
+- Added regression coverage for chunked transfer, reconstructed audio content, and response closure.
 
 #### [PR #521 — Restore migration consistency for asset-version audit history](https://github.com/Itqan-community/cms-backend/pull/521)
 
