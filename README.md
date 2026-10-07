@@ -2,7 +2,7 @@
 
 I contribute production-focused fixes to Python backend and infrastructure projects, with an emphasis on performance, concurrency, data integrity, security, and operational reliability.
 
-**At a glance:** 22 merged pull requests across Dify, authentik, Itqan CMS, Celery, redis-py, Starlette, Scalene, Glances, heym, Hishel, and open-MaStR, plus a completed concurrency defect report.
+**At a glance:** 23 merged pull requests across Dify, authentik, Itqan CMS, Celery, redis-py, Starlette, Scalene, Glances, heym, Hishel, and open-MaStR, plus a completed concurrency defect report.
 
 <details>
 <summary><strong>Itqan CMS Backend</strong></summary>
@@ -120,6 +120,14 @@ Eight merged pull requests to the Django backend powering the Itqan content-mana
 <summary><strong>redis-py</strong></summary>
 
 [![GitHub stars](https://img.shields.io/github/stars/redis/redis-py?style=flat&logo=github&label=Stars)](https://github.com/redis/redis-py/stargazers)
+
+#### [PR #4398 — Preserve async MultiDBClient lifetime when pipeline contexts exit](https://github.com/redis/redis-py/pull/4398)
+
+**Opened:** October 7, 2026 · **Merged:** October 7, 2026
+
+- Fixed pipeline context exit unintentionally shutting down the parent `MultiDBClient`, canceling background health checks and disrupting client reuse or another pipeline still executing.
+- Removed parent-client shutdown from pipeline exit while preserving pipeline cleanup through `reset()`, keeping the client active until its own context closes.
+- Added asynchronous regression tests for client reuse, exception paths, concurrent pipelines, continued health-check scheduling, and exactly-once closure of the underlying Redis client at final shutdown.
 
 #### [PR #4392 — Prevent event-loop blocking during async cluster WATCH retries](https://github.com/redis/redis-py/pull/4392)
 
