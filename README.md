@@ -2,13 +2,14 @@
 
 I contribute production-focused fixes to Python backend and infrastructure projects, with an emphasis on performance, concurrency, data integrity, security, and operational reliability.
 
-**At a glance:** 20 merged pull requests across Dify, authentik, Itqan CMS, Celery, Starlette, Scalene, Glances, heym, Hishel, and open-MaStR, plus a completed concurrency defect report.
+**At a glance:** 22 merged pull requests across Dify, authentik, Itqan CMS, Celery, redis-py, Starlette, Scalene, Glances, heym, Hishel, and open-MaStR, plus a completed concurrency defect report.
 
-## Itqan CMS Backend
+<details>
+<summary><strong>Itqan CMS Backend</strong></summary>
 
 [![GitHub stars](https://img.shields.io/github/stars/Itqan-community/cms-backend?style=flat&logo=github&label=Stars)](https://github.com/Itqan-community/cms-backend/stargazers)
 
-Seven merged pull requests to the Django backend powering the Itqan content-management platform.
+Eight merged pull requests to the Django backend powering the Itqan content-management platform.
 
 ### Security and concurrency
 
@@ -39,6 +40,13 @@ Seven merged pull requests to the Django backend powering the Itqan content-mana
 - Added a concurrent multi-threaded regression test to verify that simultaneous requests cannot contaminate one another's audit logs.
 
 ### Reliability and data integrity
+
+#### [PR #521 — Restore migration consistency for asset-version audit history](https://github.com/Itqan-community/cms-backend/pull/521)
+
+**Opened:** October 6, 2026 · **Merged:** October 6, 2026
+
+- Added a missing Django migration for historical asset-version records that was causing the CI `makemigrations --check` gate to fail.
+- Aligned the audit-history schema with asset-version model changes by adding the human-readable `label` field and updating the `name` field definition.
 
 #### [PR #489 — Defer version notifications until transaction commit](https://github.com/Itqan-community/cms-backend/pull/489)
 
@@ -75,7 +83,10 @@ Seven merged pull requests to the Django backend powering the Itqan content-mana
 - Corrected ownership for application and persistent-volume paths, including existing deployment volumes used by static and media files.
 - Moved the Celery Beat schedule to a writable runtime location and kept local, staging, and production Compose configurations aligned.
 
-## Celery
+</details>
+
+<details>
+<summary><strong>Celery</strong></summary>
 
 [![GitHub stars](https://img.shields.io/github/stars/celery/celery?style=flat&logo=github&label=Stars)](https://github.com/celery/celery/stargazers)
 
@@ -103,7 +114,24 @@ Seven merged pull requests to the Django backend powering the Itqan content-mana
 - Replaced the pending-operation list with a `deque` drained through `popleft()` to preserve FIFO scheduling order while retaining deferred execution and exception handling.
 - Added regression coverage verifying that callbacks execute in their scheduled order.
 
-## Dify
+</details>
+
+<details>
+<summary><strong>redis-py</strong></summary>
+
+[![GitHub stars](https://img.shields.io/github/stars/redis/redis-py?style=flat&logo=github&label=Stars)](https://github.com/redis/redis-py/stargazers)
+
+#### [PR #4392 — Prevent event-loop blocking during async cluster WATCH retries](https://github.com/redis/redis-py/pull/4392)
+
+**Opened:** October 6, 2026 · **Merged:** October 7, 2026
+
+- Fixed a blocking retry path in asynchronous Redis Cluster transactions where a positive `watch_delay` after a WATCH conflict paused the entire event loop.
+- Replaced `time.sleep()` with awaited `asyncio.sleep()`, allowing other coroutines to progress during retry backoff and aligning cluster behavior with the standalone async client.
+
+</details>
+
+<details>
+<summary><strong>Dify</strong></summary>
 
 
 [![GitHub stars](https://img.shields.io/github/stars/langgenius/dify?style=flat&logo=github&label=Stars)](https://github.com/langgenius/dify/stargazers)
@@ -116,7 +144,10 @@ Seven merged pull requests to the Django backend powering the Itqan content-mana
 - Enabled SQLAlchemy to group inserts rather than performing a synchronous database round trip for every imported page.
 - Updated the relevant unit test; local simulated benchmarks reported approximately 70% lower synchronization time from CPU-overhead savings.
 
-## Scalene
+</details>
+
+<details>
+<summary><strong>Scalene</strong></summary>
 
 [![GitHub stars](https://img.shields.io/github/stars/plasma-umass/scalene?style=flat&logo=github&label=Stars)](https://github.com/plasma-umass/scalene/stargazers)
 
@@ -136,7 +167,10 @@ Seven merged pull requests to the Django backend powering the Itqan content-mana
 - Removed credential collection and template injection during HTML generation while preserving an empty `envApiKeys` object for compatibility with the existing GUI bundle.
 - Added regression coverage for both regular and standalone HTML reports; users can still enter credentials through the GUI and retain them in browser-local storage.
 
-## Starlette
+</details>
+
+<details>
+<summary><strong>Starlette</strong></summary>
 
 [![GitHub stars](https://img.shields.io/github/stars/Kludex/starlette?style=flat&logo=github&label=Stars)](https://github.com/Kludex/starlette/stargazers)
 
@@ -148,7 +182,10 @@ Seven merged pull requests to the Django backend powering the Itqan content-mana
 - Detects zero-byte reads and terminates with a clear `RuntimeError` instead of repeatedly emitting empty ASGI messages with `more_body=True`.
 - Added a regression test that combines stale file metadata with a subsequently truncated file and verifies that the response exits promptly.
 
-## Glances
+</details>
+
+<details>
+<summary><strong>Glances</strong></summary>
 
 [![GitHub stars](https://img.shields.io/github/stars/nicolargo/glances?style=flat&logo=github&label=Stars)](https://github.com/nicolargo/glances/stargazers)
 
@@ -168,7 +205,10 @@ Seven merged pull requests to the Django backend powering the Itqan content-mana
 - Wrapped each export in a Psycopg transaction context for automatic rollback and serialized access so overlapping exporter threads cannot share transaction state.
 - Added regression and Docker integration coverage proving that a failed insert returns the connection to `IDLE` and that the next export succeeds using the same connection.
 
-## authentik
+</details>
+
+<details>
+<summary><strong>authentik</strong></summary>
 
 [![GitHub stars](https://img.shields.io/github/stars/goauthentik/authentik?style=flat&logo=github&label=Stars)](https://github.com/goauthentik/authentik/stargazers)
 
@@ -180,7 +220,10 @@ Seven merged pull requests to the Django backend powering the Itqan content-mana
 - Explicitly closed stale wrappers before reconnecting, immediately releasing server sessions and advisory locks during failovers or reconnect storms.
 - Narrowed broad exception handling to database-specific errors; the fix was subsequently cherry-picked into two release branches.
 
-## heym
+</details>
+
+<details>
+<summary><strong>heym</strong></summary>
 
 [![GitHub stars](https://img.shields.io/github/stars/heymrun/heym?style=flat&logo=github&label=Stars)](https://github.com/heymrun/heym/stargazers)
 
@@ -192,7 +235,10 @@ Seven merged pull requests to the Django backend powering the Itqan content-mana
 - Introduced explicit lock ownership tracking and deterministic unlock behavior before closing the dedicated async connection.
 - Prevented self-lockout during error recovery and enabled prompt leader handoff during graceful shutdown.
 
-## Hishel
+</details>
+
+<details>
+<summary><strong>Hishel</strong></summary>
 
 [![GitHub stars](https://img.shields.io/github/stars/karpetrosyan/hishel?style=flat&logo=github&label=Stars)](https://github.com/karpetrosyan/hishel/stargazers)
 
@@ -204,7 +250,10 @@ Seven merged pull requests to the Django backend powering the Itqan content-mana
 - Added synchronous and asynchronous cache-lifecycle assertions while preserving 100% coverage of modified lines.
 - The maintainer approved the fix and scheduled it for the next release.
 
-## open-MaStR
+</details>
+
+<details>
+<summary><strong>open-MaStR</strong></summary>
 
 [![GitHub stars](https://img.shields.io/github/stars/OpenEnergyPlatform/open-MaStR?style=flat&logo=github&label=Stars)](https://github.com/OpenEnergyPlatform/open-MaStR/stargazers)
 
@@ -223,6 +272,8 @@ Seven merged pull requests to the Django backend powering the Itqan content-mana
 - Identified a `ProcessPoolExecutor` race in which the worker handling the first XML chunk could delete rows already committed by another worker.
 - Documented a reproducible execution sequence explaining why the import could finish successfully while silently losing data.
 - Proposed moving table cleanup to the parent process before parallel workers start; the report was accepted and closed as completed.
+
+</details>
 
 ---
 
