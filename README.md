@@ -5,7 +5,7 @@ I contribute production-focused fixes to Python backend and infrastructure proje
 **At a glance:** 25 merged pull requests across Dify, authentik, Itqan CMS, Celery, redis-py, Starlette, Scalene, Glances, heym, Hishel, and open-MaStR, plus a completed concurrency defect report.
 
 <details>
-<summary><strong>Itqan CMS Backend</strong></summary>
+<summary><a name="itqan-cms"></a><strong>Itqan CMS Backend</strong></summary>
 
 [![GitHub stars](https://img.shields.io/github/stars/Itqan-community/cms-backend?style=flat&logo=github&label=Stars)](https://github.com/Itqan-community/cms-backend/stargazers)
 
@@ -103,7 +103,7 @@ Ten merged pull requests to the Django backend powering the Itqan content-manage
 </details>
 
 <details>
-<summary><strong>Celery</strong></summary>
+<summary><a name="celery"></a><strong>Celery</strong></summary>
 
 [![GitHub stars](https://img.shields.io/github/stars/celery/celery?style=flat&logo=github&label=Stars)](https://github.com/celery/celery/stargazers)
 
@@ -134,7 +134,7 @@ Ten merged pull requests to the Django backend powering the Itqan content-manage
 </details>
 
 <details>
-<summary><strong>redis-py</strong></summary>
+<summary><a name="redis-py"></a><strong>redis-py</strong></summary>
 
 [![GitHub stars](https://img.shields.io/github/stars/redis/redis-py?style=flat&logo=github&label=Stars)](https://github.com/redis/redis-py/stargazers)
 
@@ -156,7 +156,7 @@ Ten merged pull requests to the Django backend powering the Itqan content-manage
 </details>
 
 <details>
-<summary><strong>Dify</strong></summary>
+<summary><a name="dify"></a><strong>Dify</strong></summary>
 
 
 [![GitHub stars](https://img.shields.io/github/stars/langgenius/dify?style=flat&logo=github&label=Stars)](https://github.com/langgenius/dify/stargazers)
@@ -172,7 +172,7 @@ Ten merged pull requests to the Django backend powering the Itqan content-manage
 </details>
 
 <details>
-<summary><strong>Scalene</strong></summary>
+<summary><a name="scalene"></a><strong>Scalene</strong></summary>
 
 [![GitHub stars](https://img.shields.io/github/stars/plasma-umass/scalene?style=flat&logo=github&label=Stars)](https://github.com/plasma-umass/scalene/stargazers)
 
@@ -195,7 +195,7 @@ Ten merged pull requests to the Django backend powering the Itqan content-manage
 </details>
 
 <details>
-<summary><strong>Starlette</strong></summary>
+<summary><a name="starlette"></a><strong>Starlette</strong></summary>
 
 [![GitHub stars](https://img.shields.io/github/stars/Kludex/starlette?style=flat&logo=github&label=Stars)](https://github.com/Kludex/starlette/stargazers)
 
@@ -210,7 +210,7 @@ Ten merged pull requests to the Django backend powering the Itqan content-manage
 </details>
 
 <details>
-<summary><strong>Glances</strong></summary>
+<summary><a name="glances"></a><strong>Glances</strong></summary>
 
 [![GitHub stars](https://img.shields.io/github/stars/nicolargo/glances?style=flat&logo=github&label=Stars)](https://github.com/nicolargo/glances/stargazers)
 
@@ -233,7 +233,7 @@ Ten merged pull requests to the Django backend powering the Itqan content-manage
 </details>
 
 <details>
-<summary><strong>authentik</strong></summary>
+<summary><a name="authentik"></a><strong>authentik</strong></summary>
 
 [![GitHub stars](https://img.shields.io/github/stars/goauthentik/authentik?style=flat&logo=github&label=Stars)](https://github.com/goauthentik/authentik/stargazers)
 
@@ -248,7 +248,7 @@ Ten merged pull requests to the Django backend powering the Itqan content-manage
 </details>
 
 <details>
-<summary><strong>heym</strong></summary>
+<summary><a name="heym"></a><strong>heym</strong></summary>
 
 [![GitHub stars](https://img.shields.io/github/stars/heymrun/heym?style=flat&logo=github&label=Stars)](https://github.com/heymrun/heym/stargazers)
 
@@ -263,7 +263,7 @@ Ten merged pull requests to the Django backend powering the Itqan content-manage
 </details>
 
 <details>
-<summary><strong>Hishel</strong></summary>
+<summary><a name="hishel"></a><strong>Hishel</strong></summary>
 
 [![GitHub stars](https://img.shields.io/github/stars/karpetrosyan/hishel?style=flat&logo=github&label=Stars)](https://github.com/karpetrosyan/hishel/stargazers)
 
@@ -278,7 +278,7 @@ Ten merged pull requests to the Django backend powering the Itqan content-manage
 </details>
 
 <details>
-<summary><strong>open-MaStR</strong></summary>
+<summary><a name="open-mastr"></a><strong>open-MaStR</strong></summary>
 
 [![GitHub stars](https://img.shields.io/github/stars/OpenEnergyPlatform/open-MaStR?style=flat&logo=github&label=Stars)](https://github.com/OpenEnergyPlatform/open-MaStR/stargazers)
 
