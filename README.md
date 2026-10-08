@@ -4,10 +4,12 @@ I contribute production-focused fixes to Python backend and infrastructure proje
 
 **At a glance:** 25 merged pull requests across Dify, authentik, Itqan CMS, Celery, redis-py, Starlette, Scalene, Glances, heym, Hishel, and open-MaStR, plus a completed concurrency defect report.
 
-<details>
-<summary><a name="itqan-cms"></a><strong>Itqan CMS Backend</strong></summary>
+## Itqan CMS
 
 [![GitHub stars](https://img.shields.io/github/stars/Itqan-community/cms-backend?style=flat&logo=github&label=Stars)](https://github.com/Itqan-community/cms-backend/stargazers)
+
+<details>
+<summary>View contributions</summary>
 
 Ten merged pull requests to the Django backend powering the Itqan content-management platform.
 
@@ -102,10 +104,12 @@ Ten merged pull requests to the Django backend powering the Itqan content-manage
 
 </details>
 
-<details>
-<summary><a name="celery"></a><strong>Celery</strong></summary>
+## Celery
 
 [![GitHub stars](https://img.shields.io/github/stars/celery/celery?style=flat&logo=github&label=Stars)](https://github.com/celery/celery/stargazers)
+
+<details>
+<summary>View contributions</summary>
 
 #### [PR #10776 — Release Beat scheduler broker resources on shutdown](https://github.com/celery/celery/pull/10776)
 
@@ -133,10 +137,12 @@ Ten merged pull requests to the Django backend powering the Itqan content-manage
 
 </details>
 
-<details>
-<summary><a name="redis-py"></a><strong>redis-py</strong></summary>
+## redis-py
 
 [![GitHub stars](https://img.shields.io/github/stars/redis/redis-py?style=flat&logo=github&label=Stars)](https://github.com/redis/redis-py/stargazers)
+
+<details>
+<summary>View contributions</summary>
 
 #### [PR #4398 — Preserve async MultiDBClient lifetime when pipeline contexts exit](https://github.com/redis/redis-py/pull/4398)
 
@@ -155,11 +161,12 @@ Ten merged pull requests to the Django backend powering the Itqan content-manage
 
 </details>
 
-<details>
-<summary><a name="dify"></a><strong>Dify</strong></summary>
-
+## Dify
 
 [![GitHub stars](https://img.shields.io/github/stars/langgenius/dify?style=flat&logo=github&label=Stars)](https://github.com/langgenius/dify/stargazers)
+
+<details>
+<summary>View contributions</summary>
 
 #### [PR #39899 — Remove the N+1 insert bottleneck from Notion dataset sync](https://github.com/langgenius/dify/pull/39899)
 
@@ -171,10 +178,12 @@ Ten merged pull requests to the Django backend powering the Itqan content-manage
 
 </details>
 
-<details>
-<summary><a name="scalene"></a><strong>Scalene</strong></summary>
+## Scalene
 
 [![GitHub stars](https://img.shields.io/github/stars/plasma-umass/scalene?style=flat&logo=github&label=Stars)](https://github.com/plasma-umass/scalene/stargazers)
+
+<details>
+<summary>View contributions</summary>
 
 #### [PR #1099 — Preserve semaphore identity across spawned processes](https://github.com/plasma-umass/scalene/pull/1099)
 
@@ -194,10 +203,12 @@ Ten merged pull requests to the Django backend powering the Itqan content-manage
 
 </details>
 
-<details>
-<summary><a name="starlette"></a><strong>Starlette</strong></summary>
+## Starlette
 
 [![GitHub stars](https://img.shields.io/github/stars/Kludex/starlette?style=flat&logo=github&label=Stars)](https://github.com/Kludex/starlette/stargazers)
+
+<details>
+<summary>View contributions</summary>
 
 #### [PR #3583 — Stop multipart range responses on unexpected EOF](https://github.com/Kludex/starlette/pull/3583)
 
@@ -209,10 +220,12 @@ Ten merged pull requests to the Django backend powering the Itqan content-manage
 
 </details>
 
-<details>
-<summary><a name="glances"></a><strong>Glances</strong></summary>
+## Glances
 
 [![GitHub stars](https://img.shields.io/github/stars/nicolargo/glances?style=flat&logo=github&label=Stars)](https://github.com/nicolargo/glances/stargazers)
+
+<details>
+<summary>View contributions</summary>
 
 #### [PR #3767 — Isolate export snapshots from live plugin statistics](https://github.com/nicolargo/glances/pull/3767)
 
@@ -232,10 +245,12 @@ Ten merged pull requests to the Django backend powering the Itqan content-manage
 
 </details>
 
-<details>
-<summary><a name="authentik"></a><strong>authentik</strong></summary>
+## authentik
 
 [![GitHub stars](https://img.shields.io/github/stars/goauthentik/authentik?style=flat&logo=github&label=Stars)](https://github.com/goauthentik/authentik/stargazers)
+
+<details>
+<summary>View contributions</summary>
 
 #### [PR #24023 — Close unusable PostgreSQL connections in the Dramatiq broker](https://github.com/goauthentik/authentik/pull/24023)
 
@@ -247,10 +262,12 @@ Ten merged pull requests to the Django backend powering the Itqan content-manage
 
 </details>
 
-<details>
-<summary><a name="heym"></a><strong>heym</strong></summary>
+## heym
 
 [![GitHub stars](https://img.shields.io/github/stars/heymrun/heym?style=flat&logo=github&label=Stars)](https://github.com/heymrun/heym/stargazers)
+
+<details>
+<summary>View contributions</summary>
 
 #### [PR #436 — Release advisory locks before closing leader sessions](https://github.com/heymrun/heym/pull/436)
 
@@ -262,10 +279,12 @@ Ten merged pull requests to the Django backend powering the Itqan content-manage
 
 </details>
 
-<details>
-<summary><a name="hishel"></a><strong>Hishel</strong></summary>
+## Hishel
 
 [![GitHub stars](https://img.shields.io/github/stars/karpetrosyan/hishel?style=flat&logo=github&label=Stars)](https://github.com/karpetrosyan/hishel/stargazers)
+
+<details>
+<summary>View contributions</summary>
 
 #### [PR #119 — Correct SQLite cache-expiration logic](https://github.com/karpetrosyan/hishel/pull/119)
 
@@ -277,10 +296,12 @@ Ten merged pull requests to the Django backend powering the Itqan content-manage
 
 </details>
 
-<details>
-<summary><a name="open-mastr"></a><strong>open-MaStR</strong></summary>
+## open-MaStR
 
 [![GitHub stars](https://img.shields.io/github/stars/OpenEnergyPlatform/open-MaStR?style=flat&logo=github&label=Stars)](https://github.com/OpenEnergyPlatform/open-MaStR/stargazers)
+
+<details>
+<summary>View contributions</summary>
 
 #### [PR #790 — Fix table-name lookup in interleaved XML imports](https://github.com/OpenEnergyPlatform/open-MaStR/pull/790)
 
