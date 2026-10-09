@@ -2,7 +2,7 @@
 
 I contribute production-focused fixes to Python backend and infrastructure projects, with an emphasis on performance, concurrency, data integrity, security, and operational reliability.
 
-**At a glance:** 25 merged pull requests across Dify, authentik, Itqan CMS, Celery, redis-py, Starlette, Scalene, Glances, heym, Hishel, and open-MaStR, plus a completed concurrency defect report.
+**At a glance:** 26 merged pull requests across Dify, authentik, Itqan CMS, Celery, redis-py, Starlette, Scalene, Glances, heym, Hishel, and open-MaStR, plus a completed concurrency defect report.
 
 ## Itqan CMS
 
@@ -143,6 +143,14 @@ Ten merged pull requests to the Django backend powering the Itqan content-manage
 
 <details>
 <summary>View contributions</summary>
+
+#### [PR #4405 — Prevent synchronous token startup from deadlocking its event loop](https://github.com/redis/redis-py/pull/4405)
+
+**Opened:** October 8, 2026 · **Merged:** October 9, 2026
+
+- Fixed `TokenManager.start()` deadlocking when called from a thread that already runs an asyncio event loop.
+- Moved synchronous token renewal to a dedicated background event loop while preserving its blocking initialization contract and public API.
+- Hardened restart and shutdown handling so background loops and threads are reliably stopped and closed; added regression coverage for active-loop startup, repeated lifecycle operations, scheduling failures, and concurrent shutdown edge cases.
 
 #### [PR #4398 — Preserve async MultiDBClient lifetime when pipeline contexts exit](https://github.com/redis/redis-py/pull/4398)
 
