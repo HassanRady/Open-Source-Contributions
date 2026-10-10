@@ -2,7 +2,7 @@
 
 I contribute production-focused fixes to Python backend and infrastructure projects, with an emphasis on performance, concurrency, data integrity, security, and operational reliability.
 
-**At a glance:** 26 merged pull requests across Dify, authentik, Itqan CMS, Celery, redis-py, Starlette, Scalene, Glances, heym, Hishel, and open-MaStR, plus a completed concurrency defect report.
+
 **At a glance:** 27 merged pull requests across Dify, authentik, Itqan CMS, Celery, redis-py, Starlette, Scalene, Glances, heym, Hishel, and open-MaStR, plus a completed concurrency defect report.
 
 ## Itqan CMS
