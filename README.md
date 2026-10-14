@@ -3,7 +3,7 @@
 I contribute production-focused fixes to Python backend and infrastructure projects, with an emphasis on performance, concurrency, data integrity, security, and operational reliability.
 
 
-**At a glance:** 27 merged pull requests across Dify, authentik, Itqan CMS, Celery, redis-py, Starlette, Scalene, Glances, heym, Hishel, and open-MaStR, plus a completed concurrency defect report.
+**At a glance:** 28 merged pull requests across Dify, authentik, Itqan CMS, Celery, redis-py, Starlette, Scalene, Glances, heym, Hishel, and open-MaStR, plus a completed concurrency defect report.
 
 ## Itqan CMS
 
@@ -111,6 +111,14 @@ Ten merged pull requests to the Django backend powering the Itqan content-manage
 
 <details>
 <summary>View contributions</summary>
+
+#### [PR #10818 — Fix Celery Beat relative schedule rounding across DST transitions](https://github.com/celery/celery/pull/10818)
+
+**Opened:** October 7, 2026 · **Merged:** October 14, 2026
+
+- Fixed daily and longer relative Beat schedules becoming immediately due when elapsed-time arithmetic and rounding crossed daylight-saving time transitions.
+- Used calendar arithmetic before rounding for day-scale relative intervals, including partial-hour rollbacks, while preserving elapsed-time behavior for short and non-relative schedules.
+- Added DST regression coverage and documentation for relative daily scheduling.
 
 #### [PR #10776 — Release Beat scheduler broker resources on shutdown](https://github.com/celery/celery/pull/10776)
 
