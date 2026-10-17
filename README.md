@@ -3,7 +3,7 @@
 I contribute production-focused fixes to Python backend and infrastructure projects, with an emphasis on performance, concurrency, data integrity, security, and operational reliability.
 
 
-**At a glance:** 28 merged pull requests across Dify, authentik, Itqan CMS, Celery, redis-py, Starlette, Scalene, Glances, heym, Hishel, and open-MaStR, plus a completed concurrency defect report.
+**At a glance:** 29 merged pull requests across Dify, authentik, Itqan CMS, Celery, redis-py, Starlette, Scalene, Glances, heym, Hishel, and open-MaStR, plus a completed concurrency defect report.
 
 ## Itqan CMS
 
@@ -152,6 +152,14 @@ Ten merged pull requests to the Django backend powering the Itqan content-manage
 
 <details>
 <summary>View contributions</summary>
+
+#### [PR #4438 — Prevent mutable cache responses from corrupting client-side cache entries](https://github.com/redis/redis-py/pull/4438)
+
+**Opened:** October 15, 2026 · **Merged:** October 16, 2026
+
+- Fixed client-side cache corruption where a caller could mutate a mutable response returned on a cache miss, causing later cache hits to return data that no longer matched Redis.
+- Cloned mutable replies before caching or returning them, while bypassing deep copies for common immutable scalar types to preserve the fast path.
+- Added regression coverage for mutable list and dictionary responses on cache misses and hits, immutable identity preservation, and cache-placeholder cleanup when cloning fails.
 
 #### [PR #4405 — Prevent synchronous token startup from deadlocking its event loop](https://github.com/redis/redis-py/pull/4405)
 
